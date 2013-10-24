@@ -3,16 +3,16 @@
 
 angular.module('angryjs.flashMessages', [])
 
-  .factory('FlashMessages', ['$rootScope'], function ($rootScope) {
+  .factory('FlashMessages', ['$rootScope', function ($rootScope) {
     var messages = [];
 
-    function Flash($rootScope) {
+    var Flash = function ($rootScope) {
       var _this = this;
       this.$rootScope = $rootScope;
       $rootScope.$on('$routeChangeSuccess', function() {
         return _this.show();
       });
-    }
+    };
 
     Flash.prototype.info = function(message) {
       return this.add('info', message);
@@ -42,8 +42,8 @@ angular.module('angryjs.flashMessages', [])
       return this.$rootScope.$broadcast('messages:reset');
     };
 
-    return Flash;
-  })
+    return new Flash($rootScope);
+  }])
 
   .directive('flashMessages', function() {
     var config, template;
