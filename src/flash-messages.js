@@ -19,6 +19,10 @@ angular.module('angryjs.flashMessages', [])
       return this.add('danger', message);
     };
 
+    Flash.prototype.warning = function(message) {
+      return this.add('warning', message);
+    };
+
     Flash.prototype.success = function(message) {
       return this.add('success', message);
     };
