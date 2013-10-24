@@ -44,7 +44,13 @@ angular.module('angryjs.flashMessages', [])
 
   .directive('flashMessages', function() {
     var config, template;
-    template = ['<div ng-show="messages.length">', '<div ng-repeat="(i, message) in messages" ng-show="message" class="alert alert-{{message.type}}">', '<button class="close" ng-click="closeAlertMessage(i)">×</button>', '<span>{{message.message}}</span>', '</div>', '</div>'].join("\n");
+    template = [
+      '<div ng-show="messages.length">',
+        '<div ng-repeat="(i, message) in messages" ng-show="message" class="alert alert-{{message.type}}">',
+          '<button class="close" ng-click="closeAlertMessage(i)">×</button>', '<span>{{message.message}}</span>',
+        '</div>',
+      '</div>'
+    ].join("\n");
     config = {
       scope: {},
       restrict: 'E',
