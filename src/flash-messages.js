@@ -7,11 +7,8 @@ angular.module('angryjs.flashMessages', [])
     var messages = [];
 
     var Flash = function ($rootScope) {
-      var _this = this;
       this.$rootScope = $rootScope;
-      $rootScope.$on('$routeChangeSuccess', function() {
-        return _this.show();
-      });
+      $rootScope.$on('$routeChangeSuccess', this.show);
     };
 
     Flash.prototype.info = function(message) {
