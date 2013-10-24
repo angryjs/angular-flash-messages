@@ -16,7 +16,7 @@ angular.module('angryjs.flashMessages', [])
     };
 
     Flash.prototype.error = function(message) {
-      return this.add('error', message);
+      return this.add('danger', message);
     };
 
     Flash.prototype.success = function(message) {
