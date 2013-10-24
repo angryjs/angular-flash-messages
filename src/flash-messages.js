@@ -3,7 +3,7 @@
 
 angular.module('angryjs.flashMessages', [])
 
-  .factory('flashMessages', ['$rootScope'], function ($rootScope) {
+  .factory('FlashMessages', ['$rootScope'], function ($rootScope) {
     var messages = [];
 
     function Flash($rootScope) {
