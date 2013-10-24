@@ -1,0 +1,7 @@
+{
+  "name": "angular-flash-messages",
+  "version": "0.0.1",
+  "main": "./src/flash-messages.js",
+  "dependencies": {
+  }
+}
