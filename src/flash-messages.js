@@ -39,7 +39,7 @@ angular.module('angryjs.flashMessages', [])
 
     Flash.prototype.show = function() {
       this.$rootScope.$broadcast('messages:show', messages);
-      this.reset();
+      messages = [];
     };
 
     Flash.prototype.reset = function() {
