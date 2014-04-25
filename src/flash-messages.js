@@ -6,7 +6,7 @@ angular.module('angryjs.flashMessages', [])
   .factory('FlashMessages', ['$rootScope', function ($rootScope) {
     var messages = [];
 
-    var Flash = function ($rootScope) {
+    var FlashMessages = function ($rootScope) {
       var self = this;
       this.$rootScope = $rootScope;
       $rootScope.$on('$routeChangeSuccess', function () {
@@ -14,40 +14,40 @@ angular.module('angryjs.flashMessages', [])
       });
     };
 
-    Flash.prototype.info = function(message) {
+    FlashMessages.prototype.info = function(message) {
       return this.add('info', message);
     };
 
-    Flash.prototype.error = function(message) {
+    FlashMessages.prototype.error = function(message) {
       return this.add('danger', message);
     };
 
-    Flash.prototype.warning = function(message) {
+    FlashMessages.prototype.warning = function(message) {
       return this.add('warning', message);
     };
 
-    Flash.prototype.success = function(message) {
+    FlashMessages.prototype.success = function(message) {
       return this.add('success', message);
     };
 
-    Flash.prototype.add = function(type, message) {
+    FlashMessages.prototype.add = function(type, message) {
       return messages.push({
         message: message,
         type: type
       });
     };
 
-    Flash.prototype.show = function() {
+    FlashMessages.prototype.show = function() {
       this.$rootScope.$broadcast('messages:show', messages);
       messages = [];
     };
 
-    Flash.prototype.reset = function() {
+    FlashMessages.prototype.reset = function() {
       this.$rootScope.$broadcast('messages:reset');
       messages = [];
     };
 
-    return new Flash($rootScope);
+    return new FlashMessages($rootScope);
   }])
 
   .directive('flashMessages', function() {
